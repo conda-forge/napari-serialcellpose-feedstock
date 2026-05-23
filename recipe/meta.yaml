@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-serialcellpose-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-serialcellpose-{{ version }}.tar.gz
   sha256: 717afe4627282dfd72a794c07527c01b9697c3c70330031e0b5a01dc600316fc
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools-scm
   run:
     - cellpose
@@ -28,7 +28,7 @@ requirements:
     - napari-aicsimageio
     - napari-skimage-regionprops
     - numpy
-    - python >=3.8
+    - python >={{ python_min }}
     - qtpy
 
 test:
@@ -39,6 +39,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/napari-serialcellpose
