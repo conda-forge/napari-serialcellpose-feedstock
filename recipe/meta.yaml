@@ -1,13 +1,13 @@
 {% set name = "napari-serialcellpose" %}
-{% set version = "0.2.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-serialcellpose-{{ version }}.tar.gz
-  sha256: 717afe4627282dfd72a794c07527c01b9697c3c70330031e0b5a01dc600316fc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 2da062785b6393a391040650637d071c0abb4ac195305a49dcdda613ab109567
 
 build:
   noarch: python
